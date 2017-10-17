@@ -4,16 +4,20 @@
     border-color: none;
 }
 
+.bg-dark2 {
+    background-color:#000;
+}
+
 /*tab pills*/
 #exTab1 .tab-content {
   color : white;
-  background-color: #428bca;
+  background-color: rgba(0, 0, 0, 0.8);
   padding : 5px 15px;
 }
 
 #exTab2 h3 {
   color : white;
-  background-color: #428bca;
+  background-color: rgba(0, 0, 0, 0.8);
   padding : 5px 15px;
 }
 
@@ -36,3 +40,8 @@
 .element {
   @include clearfix;
 }
+
+.modal-content {
+  background-color: rgba(0, 0, 0, 1.0);
+
+  }

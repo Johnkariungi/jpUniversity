@@ -41,24 +41,24 @@
         </div>
     </section>
     <hr/>
-    <div class="row">
+    <!--<div class="row">
         <div class="col-xs-9 col-xs-offset-3" id="exTab1">
-            <!--Nav tabs-->
+            &lt;!&ndash;Nav tabs&ndash;&gt;
             <ul class="nav nav-tabs">
-                <li class="nav-item">
+                <li th:classappend="${classActiveNewAccount} ? 'active'" class="nav-item">
                     <a class="nav-link" href="#tab-1"><span>Create new Account</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#tab-1"><span>Login</span></a>
+                <li th:classappend="${classActiveLogin} ? 'active'" class="nav-item">
+                    <a class="nav-link" href="#tab-2"><span>Login</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#tab-1"><span>Forget Password</span></a>
+                <li th:classappend="${classActiveForgetPassword} ? 'active'" class="nav-item">
+                    <a class="nav-link" href="#tab-3"><span>Forget Password</span></a>
                 </li>
             </ul>
-            <!--Tab Panels-->
+            &lt;!&ndash;Tab Panels&ndash;&gt;
             <div class="tab-content">
-                <!--Create new user pane-->
-                <div class="tab-pane fade" id="tab-1">
+                &lt;!&ndash;Create new user pane&ndash;&gt;
+                <div class="tab-pane fade" id="tab-1" th:classappend="${classActiveNewAccount} ? 'in active'">
                     <div class="panel-group">
                         <div class="panel panel-default" style="border:none;">
                             <div class="panel-body">
@@ -81,8 +81,8 @@
                     </div>
                 </div>
 
-                <!--Login-->
-                <div class="tab-pane fade" id="tab-2">
+                &lt;!&ndash;Login&ndash;&gt;
+                <div class="tab-pane fade" id="tab-2" th:classappend="${classActiveLogin} ? 'in active'">
                     <div class="panel-group">
                         <div class="panel panel-default" style="border:none;">
                             <div class="panel-body">
@@ -105,8 +105,8 @@
                     </div>
                 </div>
 
-                <!--Forget Password-->
-                <div class="tab-pane fade" id="tab-3">
+                &lt;!&ndash;Forget Password&ndash;&gt;
+                <div class="tab-pane fade" id="tab-3" th:classappend="${classActiveForgetPassword} ? 'in active'">
                     <div class="panel-group">
                         <div class="panel panel-default" style="border:none;">
                             <div class="panel-body">
@@ -124,37 +124,87 @@
                     </div>
                 </div>
 
-                <!--tabs clearfix-->
 
-                <!--<div class="container"><h1>Bootstrap  tab panel example (using nav-pills)  </h1></div>
-                <div id="exTab1" class="container">
-                    <ul  class="nav nav-pills">
-                        <li class="active">
-                            <a  href="#1a" data-toggle="tab">Overview</a>
-                        </li>
-                        <li><a href="#2a" data-toggle="tab">Using nav-pills</a>
-                        </li>
-                        <li><a href="#3a" data-toggle="tab">Applying clearfix</a>
-                        </li>
-                        <li><a href="#4a" data-toggle="tab">Background color</a>
-                        </li>
-                    </ul>
+        </div>
+    </div>-->
 
-                    <div class="tab-content clearfix">
-                        <div class="tab-pane active" id="1a">
-                            <h3>Content's background color is the same for the tab</h3>
-                        </div>
-                        <div class="tab-pane" id="2a">
-                            <h3>We use the class nav-pills instead of nav-tabs which automatically creates a background color for the tab</h3>
-                        </div>
-                        <div class="tab-pane" id="3a">
-                            <h3>We applied clearfix to the tab-content to rid of the gap between the tab and the content</h3>
-                        </div>
-                        <div class="tab-pane" id="4a">
-                            <h3>We use css to change the background color of the content to be equal to the tab</h3>
+    <!--tabs clearfix-->
+
+    <!--<div class="container"><h1>Bootstrap  tab panel example (using nav-pills)  </h1></div>-->
+    <div id="exTab1">
+        <ul  class="nav nav-pills">
+            <li  th:classappend="${classActiveNewAccount} ? 'active'">
+                <a  href="#1a" data-toggle="tab">Create new account</a>
+            </li>
+            <li  th:classappend="${classActiveLogin} ? 'active'">
+                <a href="#2a" data-toggle="tab">Login</a>
+            </li>
+            <li th:classappend="${classActiveForgetPassword} ? 'active'">
+                <a href="#3a" data-toggle="tab">Forgot Password</a>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <!--Create new account-->
+            <div class="tab-pane active" id="1a" th:classappend="${classActiveNewAccount} ? 'in active'">
+                <form>
+                    <div class="form-group">
+                        <label for="newUsername">* Username: </label>
+                        <input required="required" type="text" class="form-control" id="newUsername" name="username"/>
+                        <p>Enter your username here.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">* Email Address: </label>
+                        <input required="required" type="text" class="form-control" id="email" name="email"/>
+                        <p>A valid email address.</p>
+                    </div>
+                    <button type="submit" class="btn btn-default">Create new account</button>
+                </form>
+            </div>
+            <!--Login-->
+            <div class="tab-pane" id="2a" th:classappend="${classActiveLogin} ? 'in active'">
+                <form>
+                    <div class="form-group">
+                        <label for="newUsername">* Username: </label>
+                        <input required="required" type="text" class="form-control" id="username" name="username"/>
+                        <p>Enter your username here.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">* Password: </label>
+                        <input required="required" type="password" class="form-control" id="password" name="password"/>
+                        <p>Enter the password that accompanies your username.</p>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox"/> Remember Password</label>
                         </div>
                     </div>
-                </div>-->
+                    <button type="submit" class="btn btn-default">Login</button>
+                </form>
+                <div class="text-center">
+                    <a class="d-block small mt-3" href="#1a">Register an Account</a>
+                    <a class="d-block small" href="#3a">Forgot Password?</a>
+                </div>
+            </div>
+            <!--Forget Password-->
+            <div class="tab-pane" id="3a" th:classappend="${classActiveForgetPassword} ? 'in active'">
+                <div class="text-center mt-4 mb-5">
+                    <h4>Forgot your password?</h4>
+                    <p>Enter your email address and we will send you instructions on how to reset your password.</p>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="recoverEmail">* Your Email: </label>
+                        <input required="required" type="text" class="form-control" id="recoverEmail" name="email"/>
+                        <p>Enter your registered email address here.</p>
+                    </div>
+
+                    <button type="submit" class="btn btn-default">Login</button>
+                </form>
             </div>
         </div>
     </div>

@@ -19,11 +19,11 @@
 <link href='https://fonts.googleapis.com/css?family=Cabin:700' rel='stylesheet' type='text/css'/>
 
 <!-- Plugin CSS -->
-<link href="./vendor/magnific-popup/magnific-popup.css" rel="stylesheet"/>
+<link href="./vendor/magnific-popup/magnific-popup.css" rel="stylesheet" type="text/css"/>
 
 <!-- Custom styles for this template -->
-<link href="./css/grayscale.min.css" rel="stylesheet"/>
-<link href="./css/style.css" rel="stylesheet"/>
+<link href="./css/grayscale.min.css" rel="stylesheet" type="text/css"/>
+<link href="./css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 <!-- </head>-->
 
@@ -62,7 +62,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="alertsDropdown">
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="myAccount">
+                                <a class="dropdown-item" th:href="@{/login}">
                       <span class="text-success">
                         <strong>
                           <i class="fa fa-long-arrow-up fa-fw"></i>My Account</strong>
@@ -83,7 +83,7 @@
                       </span>
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">
+                                <a class="dropdown-item" th:href="@{/login}">
                       <span class="text-success">
                         <strong>
                           <i class="fa fa-long-arrow-up fa-fw"></i>My Account</strong>
