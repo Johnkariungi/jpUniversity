@@ -1,5 +1,6 @@
 package jpUniversity.jpUniversity.controller;
 
+import jpUniversity.jpUniversity.domain.security.PasswordResetToken;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,12 @@ public class HomeController {
     }
 
     @RequestMapping("/forgetPassword")
-    public String forgetPassword(Model model) {
+    public String forgetPassword(
+            Locale locale,
+            @RequestParam("token") String token,
+            Model model) {
+        PasswordResetToken passToken = userService.getPasswordResetToken(token);
+
         model.addAttribute("classActiveForgetPassword", true);
         return "myAccount";
     }
